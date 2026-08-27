@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ankur Raj — Senior Engineering Leader, AI Infrastructure</title>
-<meta name="description" content="Ankur Raj — Senior Engineering Leader building AI infrastructure, developer platforms, and compiler systems at Oracle.">
+<title>Ankur Raj — Engineering Platforms, Developer Tooling & AI Systems</title>
+<meta name="description" content="Ankur Raj builds engineering platforms, developer tooling, code-coverage systems, AI evaluation, and agent infrastructure at Oracle.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -434,6 +434,55 @@
   }
 
   :focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+
+  /* ---------- project portfolio tabs ---------- */
+  .project-tabs{margin-top:30px;}
+  .tab-list{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 18px;}
+  .tab-button{
+    appearance:none; background:transparent; border:1px solid var(--line); border-radius:2px;
+    color:var(--text-muted); cursor:pointer; font:500 11px 'IBM Plex Mono', monospace;
+    letter-spacing:.04em; padding:9px 11px; text-transform:uppercase;
+  }
+  .tab-button:hover,.tab-button[aria-selected="true"]{border-color:var(--accent); color:var(--accent); background:rgba(111,211,232,.07);}
+  .project-panel{display:none; grid-template-columns:minmax(0,1.55fr) minmax(250px,.75fr); gap:22px; background:var(--bg-panel); border:1px solid var(--line); border-radius:var(--radius); padding:28px;}
+  .project-panel.active{display:grid;}
+  .project-panel h3{font:600 24px 'Space Grotesk',sans-serif; margin-bottom:10px;}
+  .project-panel p{color:var(--text-muted); font-size:15px;}
+  .project-panel p + p{margin-top:12px;}
+  .project-facts{border-left:1px solid var(--line); padding-left:22px;}
+  .project-facts .k{font:500 10px 'IBM Plex Mono',monospace; color:var(--accent); letter-spacing:.09em; text-transform:uppercase; margin-bottom:7px;}
+  .project-facts .v{color:var(--text-muted); font-size:13px; margin-bottom:18px;}
+  .portfolio-note{color:var(--text-muted); font-size:12px; margin-top:14px;}
+  @media (max-width:720px){.project-panel{grid-template-columns:1fr;}.project-facts{border-left:0;border-top:1px solid var(--line);padding:18px 0 0;}.tab-button{font-size:10px;padding:8px;}}
+
+  /* ---------- technical editorial redesign ---------- */
+  .hero{padding-bottom:32px;}
+  .hero h1{max-width:900px; letter-spacing:-.025em;}
+  .hero-sub{max-width:760px; font-size:18px; line-height:1.65;}
+  .drawing-tag{border-color:rgba(111,211,232,.3);}
+  .evidence-section{padding:28px 0 68px;}
+  .evidence-label{font:500 10px 'IBM Plex Mono',monospace; color:var(--text-muted); letter-spacing:.1em; text-transform:uppercase; margin-bottom:12px;}
+  .evidence-grid{display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .evidence-grid>div{padding:22px 22px 22px 0; display:flex; flex-direction:column; gap:6px;}
+  .evidence-grid>div+div{padding-left:22px; border-left:1px solid var(--line);}
+  .evidence-num{font:700 38px 'Space Grotesk',sans-serif; color:var(--text); letter-spacing:-.04em;}
+  .evidence-copy{color:var(--text-muted); font-size:12px; line-height:1.5; max-width:220px;}
+  .flagship{padding:0 0 88px;}
+  .flagship{border-top:1px solid var(--line); padding-top:28px;}
+  .flagship-kicker{font:500 10px 'IBM Plex Mono',monospace; color:var(--accent); letter-spacing:.1em; text-transform:uppercase; margin-bottom:20px;}
+  .flagship-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:54px; align-items:end;}
+  .flagship h2{font:600 clamp(28px,3.5vw,44px) 'Space Grotesk',sans-serif; line-height:1.08; letter-spacing:-.025em;}
+  .flagship p{margin-top:18px; color:var(--text-muted); font-size:16px; max-width:600px;}
+  .flagship-architecture{border:1px solid var(--line); border-radius:var(--radius); padding:18px; display:flex; flex-wrap:wrap; align-items:center; gap:8px; font:500 11px 'IBM Plex Mono',monospace; color:var(--text-muted);}
+  .flagship-architecture span{padding:7px 8px; border:1px solid var(--line); color:var(--text);}
+  .flagship-architecture i{font-style:normal; color:var(--accent);}
+  .flagship-proof{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:34px; padding-top:22px; border-top:1px solid var(--line);}
+  .flagship-proof b{display:block; color:var(--accent); font:500 10px 'IBM Plex Mono',monospace; letter-spacing:.08em; text-transform:uppercase; margin-bottom:8px;}
+  .flagship-proof span{color:var(--text-muted); font-size:13px; line-height:1.55;}
+  .section-head{margin-bottom:26px;}
+  .project-panel{box-shadow:none;}
+  .project-panel h3{letter-spacing:-.015em;}
+  @media (max-width:760px){.evidence-grid,.flagship-grid,.flagship-proof{grid-template-columns:1fr;}.evidence-grid>div+div{padding-left:0;border-left:0;border-top:1px solid var(--line);}.flagship-grid{gap:24px;}.flagship-proof{gap:18px;}.flagship{padding-bottom:60px;}}
 </style>
 </head>
 <body>
@@ -443,10 +492,11 @@
     <div class="brand">ANKUR<span>·</span>RAJ</div>
     <nav class="navlinks">
       <a href="#summary"><span class="idx">01</span>Summary</a>
-      <a href="#ai"><span class="idx">02</span>AI Systems</a>
-      <a href="#experience"><span class="idx">03</span>Experience</a>
-      <a href="#expertise"><span class="idx">04</span>Expertise</a>
-      <a href="#contact"><span class="idx">05</span>Contact</a>
+      <a href="#projects"><span class="idx">02</span>Projects</a>
+      <a href="#ai"><span class="idx">03</span>AI Systems</a>
+      <a href="#experience"><span class="idx">04</span>Experience</a>
+      <a href="#expertise"><span class="idx">05</span>Expertise</a>
+      <a href="#contact"><span class="idx">06</span>Contact</a>
     </nav>
   </div>
 </div>
@@ -455,8 +505,8 @@
   <div class="hero-eyebrow">
     <span class="drawing-tag"><span class="dot"></span>Drawing No. AR&#8209;2026&#8209;01 &nbsp;·&nbsp; Rev C &nbsp;·&nbsp; Bengaluru, India</span>
   </div>
-  <h1>I build the infrastructure other engineers <span class="accent">build on top of.</span></h1>
-  <p class="hero-sub">Senior engineering leader — 13+ years building organizations and org-wide infrastructure for large-scale database engineering. Now leading Oracle's shift into AI/LLM systems: evaluation platforms, agentic developer tooling, and retrieval-augmented infrastructure used across the Database Development organization.</p>
+  <h1>I build engineering systems that make <span class="accent">large software reliable.</span></h1>
+  <p class="hero-sub">13+ years across developer tooling, compiler infrastructure, code coverage, CI/CD intelligence, AI evaluation, agent platforms, and runtime-safety tooling for large-scale database engineering. I lead teams, but remain deeply technical in the systems I build.</p>
 
   <div class="hero-meta">
     <a href="mailto:ankurrj7@gmail.com">ankurrj7@gmail.com</a>
@@ -471,44 +521,78 @@
   </div>
 </div>
 
-<div class="wrap diagram-section">
-  <div class="diagram-label"><span class="idx">FIG. 01</span> — Career system, traced end to end</div>
-  <div class="flow">
-    <div class="flow-node">
-      <div class="tag">NODE·01</div>
-      <h3>Org Building</h3>
-      <p>Built an 18-person engineering organization from a single execution team.</p>
-    </div>
-    <div class="flow-connector"><span>&#8594;</span></div>
-    <div class="flow-node">
-      <div class="tag">NODE·02</div>
-      <h3>Compiler Modernization</h3>
-      <p>Led Oracle Database's migration to Clang/LLVM. ~$3M/yr recurring savings.</p>
-    </div>
-    <div class="flow-connector"><span>&#8594;</span></div>
-    <div class="flow-node">
-      <div class="tag">NODE·03</div>
-      <h3>Regression Intelligence</h3>
-      <p>Designed a predictive prioritization algorithm, eliminating a major recurring execution cost.</p>
-    </div>
-    <div class="flow-connector"><span>&#8594;</span></div>
-    <div class="flow-node">
-      <div class="tag">NODE·04</div>
-      <h3>AI / LLM Systems</h3>
-      <p>Shipped 4 production systems: DBDev Assistant, EvalBench, Codex skills, FindMembug.</p>
-    </div>
-    <div class="flow-connector"><span>&#8594;</span></div>
-    <div class="flow-node">
-      <div class="tag">NODE·05</div>
-      <h3>Director, Now</h3>
-      <p>Own strategy, investment, and delivery for Oracle's Database Engineering Platforms.</p>
-    </div>
+<section class="wrap evidence-section" aria-label="Selected engineering evidence">
+  <div class="evidence-label">Selected engineering evidence</div>
+  <div class="evidence-grid">
+    <div><span class="evidence-num">3B+</span><span class="evidence-copy">source lines served by the code-coverage and reporting platform</span></div>
+    <div><span class="evidence-num">20K+</span><span class="evidence-copy">files in the collection and analysis estate</span></div>
+    <div><span class="evidence-num">$3M</span><span class="evidence-copy">annual impact from compiler modernization</span></div>
   </div>
-</div>
+</section>
+
+<section class="wrap flagship" aria-labelledby="coverage-case-study">
+  <div class="flagship-kicker">Flagship case study · 01</div>
+  <div class="flagship-grid">
+    <div><h2 id="coverage-case-study">Code coverage as an engineering decision system.</h2><p>Built an Oracle Database-scale platform that moves coverage from a compliance number to a practical signal for quality, regression selection, and release confidence.</p></div>
+    <div class="flagship-architecture"><span>JCCV + LLVM instrumentation</span><i>→</i><span>Central collection &amp; reporting</span><i>→</i><span>Coverage analytics</span><i>→</i><span>Regression prioritisation</span></div>
+  </div>
+  <div class="flagship-proof"><div><b>Problem</b><span>Measure quality across a massive, multi-language database product.</span></div><div><b>What I built</b><span>JCCV/OJVM coverage, custom C++ LLVM tooling, collection and reporting infrastructure.</span></div><div><b>Outcome</b><span>Evidence-led CI/CD decisions and coverage-informed regression intelligence.</span></div></div>
+</section>
+
+<section class="wrap" id="projects">
+  <div class="section-head">
+    <span class="section-num">02</span>
+    <h2>Technical Portfolio</h2>
+    <span class="section-sub">Selected systems &amp; platforms</span>
+  </div>
+  <p class="lede">A set of long-running engineering systems across code quality, compilers, AI applications, evaluation, and memory safety. Descriptions share the problem and impact without exposing internal implementation details.</p>
+
+  <div class="project-tabs">
+    <div class="tab-list" role="tablist" aria-label="Technical portfolio projects">
+      <button class="tab-button" role="tab" aria-selected="true" aria-controls="coverage" id="tab-coverage" data-tab="coverage">Code Coverage</button>
+      <button class="tab-button" role="tab" aria-selected="false" aria-controls="regression" id="tab-regression" data-tab="regression">CI/CD Intelligence</button>
+      <button class="tab-button" role="tab" aria-selected="false" aria-controls="compiler" id="tab-compiler" data-tab="compiler">Compiler Tooling</button>
+      <button class="tab-button" role="tab" aria-selected="false" aria-controls="evaluation" id="tab-evaluation" data-tab="evaluation">AI Evaluation</button>
+      <button class="tab-button" role="tab" aria-selected="false" aria-controls="agents" id="tab-agents" data-tab="agents">Agent Infrastructure</button>
+      <button class="tab-button" role="tab" aria-selected="false" aria-controls="security" id="tab-security" data-tab="security">AI Security</button>
+      <button class="tab-button" role="tab" aria-selected="false" aria-controls="memory" id="tab-memory" data-tab="memory">Memory Safety</button>
+    </div>
+
+    <article class="project-panel active" role="tabpanel" id="coverage" aria-labelledby="tab-coverage">
+      <div><h3>Oracle Database Code Coverage Infrastructure</h3><p>Designed the product-wide code-coverage infrastructure for Oracle Database: instrumentation, collection, reporting, and analysis across a very large, multi-language codebase.</p><p>Built JCCV, an in-house Java coverage tool designed for massive Java applications and differentiated by its Oracle JVM support. Also own custom C++ coverage tooling built around LLVM compiler infrastructure rather than relying solely on general-purpose open-source coverage tooling.</p></div>
+      <div class="project-facts"><div class="k">Scale</div><div class="v">20K+ files · 3B+ source lines</div><div class="k">Core systems</div><div class="v">JCCV · custom LLVM C++ coverage · reporting platform</div><div class="k">Outcome</div><div class="v">Actionable quality signals for engineering teams</div></div>
+    </article>
+    <article class="project-panel" role="tabpanel" id="regression" aria-labelledby="tab-regression" hidden>
+      <div><h3>CI/CD &amp; Regression Intelligence</h3><p>Turned coverage, source-change, and historical execution signals into regression selection and prioritisation algorithms. The goal: preserve confidence while concentrating compute on the tests most likely to reveal regressions.</p><p>This is developer infrastructure, not a dashboard: it connects quality signals directly to daily engineering decisions and CI/CD execution at large scale.</p></div>
+      <div class="project-facts"><div class="k">Focus</div><div class="v">Regression selection · prioritisation · feedback loops</div><div class="k">Inputs</div><div class="v">Coverage, change signals, historical results</div><div class="k">Impact</div><div class="v">Higher signal per unit of regression compute</div></div>
+    </article>
+    <article class="project-panel" role="tabpanel" id="compiler" aria-labelledby="tab-compiler" hidden>
+      <div><h3>Compiler &amp; Developer Tooling</h3><p>Led major compiler modernization work for Oracle Database, including the move to Clang/LLVM and the engineering infrastructure needed to make that transition dependable at product scale.</p><p>Contributed upstream coverage-counter work to LLVM/Clang, addressing false coverage in non-returning call chains. The modernization program produced approximately $3M in recurring annual savings.</p></div>
+      <div class="project-facts"><div class="k">Technologies</div><div class="v">LLVM · Clang · C/C++ · compiler instrumentation</div><div class="k">Open source</div><div class="v">LLVM/Clang PR #201079</div><div class="k">Impact</div><div class="v">~$3M recurring annual savings</div></div>
+    </article>
+    <article class="project-panel" role="tabpanel" id="evaluation" aria-labelledby="tab-evaluation" hidden>
+      <div><h3>LLM-as-a-Judge Evaluation for Oracle AI Studio</h3><p>Designed evaluation infrastructure for AI applications: task-level scoring, LLM-as-a-Judge assessments, and metrics for groundedness, relevance, safety, latency, and cost.</p><p>The intent is a repeatable release-quality discipline for prompts, models, and agent workflows—supported by evidence and auditability rather than subjective demos.</p></div>
+      <div class="project-facts"><div class="k">Capabilities</div><div class="v">LLM-as-a-Judge · traceable scoring · release signals</div><div class="k">Measures</div><div class="v">Quality · safety · latency · cost</div><div class="k">Audience</div><div class="v">Teams shipping governed AI applications</div></div>
+    </article>
+    <article class="project-panel" role="tabpanel" id="agents" aria-labelledby="tab-agents" hidden>
+      <div><h3>Agent Infrastructure for LLM Applications</h3><p>Built shared foundations for production LLM applications: retrieval-augmented systems, orchestration, memory, observability, evaluation, and guardrails.</p><p>These platforms make AI capabilities reusable across teams instead of being one-off prototypes, with clear operational controls and measurable application behavior.</p></div>
+      <div class="project-facts"><div class="k">Building blocks</div><div class="v">RAG · memory · orchestration · observability</div><div class="k">Operations</div><div class="v">Evaluation · guardrails · release discipline</div><div class="k">Design goal</div><div class="v">Reusable infrastructure for production AI</div></div>
+    </article>
+    <article class="project-panel" role="tabpanel" id="security" aria-labelledby="tab-security" hidden>
+      <div><h3>AI-Assisted Security &amp; Defect Discovery</h3><p>Developed agentic approaches to source-level vulnerability and defect discovery for C/C++ systems, using runtime sanitizers and verification workflows to improve finding quality.</p><p>The important distinction is evidence: candidate issues are analyzed and validated rather than merely generated, giving engineering teams a more useful path from detection to remediation.</p></div>
+      <div class="project-facts"><div class="k">Approach</div><div class="v">Agentic analysis + sanitizer-backed verification</div><div class="k">Domain</div><div class="v">C/C++ quality and security</div><div class="k">Outcome</div><div class="v">High-confidence, reviewable findings</div></div>
+    </article>
+    <article class="project-panel" role="tabpanel" id="memory" aria-labelledby="tab-memory" hidden>
+      <div><h3>Memory &amp; Runtime Safety Tooling</h3><p>Developed and enabled a practical memory-safety testing ecosystem for database engineering: shared-memory checking, compiler/runtime instrumentation, AddressSanitizer, UndefinedBehaviorSanitizer, and Valgrind workflows.</p><p>Focused on repeatable diagnostics and developer enablement for memory corruption, buffer overruns, stale pointers, invalid accesses, and undefined behavior.</p></div>
+      <div class="project-facts"><div class="k">Tooling</div><div class="v">DKC · ASan · UBSan · Valgrind</div><div class="k">Architecture</div><div class="v">KGH v2 / DKC memory-safety approach</div><div class="k">Goal</div><div class="v">Earlier detection and faster diagnosis</div></div>
+    </article>
+  </div>
+  <p class="portfolio-note">Selected technical work. Product-specific implementation details remain confidential.</p>
+</section>
 
 <section class="wrap" id="ai">
   <div class="section-head">
-    <span class="section-num">02</span>
+    <span class="section-num">03</span>
     <h2>AI &amp; Agentic Engineering</h2>
     <span class="section-sub">4 systems in production</span>
   </div>
@@ -566,7 +650,7 @@
 
 <section class="wrap" id="experience">
   <div class="section-head">
-    <span class="section-num">03</span>
+    <span class="section-num">04</span>
     <h2>Professional Experience</h2>
     <span class="section-sub">Oracle · Samsung R&amp;D</span>
   </div>
@@ -606,7 +690,7 @@
 
 <section class="wrap" id="expertise">
   <div class="section-head">
-    <span class="section-num">04</span>
+    <span class="section-num">05</span>
     <h2>Core Expertise</h2>
     <span class="section-sub">Legend</span>
   </div>
@@ -654,5 +738,20 @@
   </div>
 </footer>
 
+<script>
+  document.querySelectorAll('.tab-button').forEach(function(button) {
+    button.addEventListener('click', function() {
+      var target = button.dataset.tab;
+      document.querySelectorAll('.tab-button').forEach(function(item) {
+        item.setAttribute('aria-selected', String(item === button));
+      });
+      document.querySelectorAll('.project-panel').forEach(function(panel) {
+        var selected = panel.id === target;
+        panel.classList.toggle('active', selected);
+        panel.hidden = !selected;
+      });
+    });
+  });
+</script>
 </body>
 </html>
